@@ -17,7 +17,7 @@ env:
 jobs:
   build-and-push-image:
     runs-on: ubuntu-22.04
-    if: ${{ github.repository_owner == 'music-encoding' }}
+    if: ${{ github.repository_owner == 'simar0at' }}
     permissions:
       contents: read
       packages: write
