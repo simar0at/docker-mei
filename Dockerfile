@@ -3,6 +3,7 @@ FROM ubuntu:22.04
 LABEL org.opencontainers.image.authors="https://github.com/riedde"
 LABEL org.opencontainers.image.authors="https://github.com/bwbohl"
 LABEL org.opencontainers.image.authors="https://github.com/kepper"
+LABEL org.opencontainers.image.authors="https://github.com/simar0at"
 LABEL org.opencontainers.image.source="https://github.com/music-encoding/docker-mei"
 LABEL org.opencontainers.image.revision="v0.0.1"
 
