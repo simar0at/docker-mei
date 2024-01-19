@@ -30,7 +30,7 @@ ADD https://downloads.apache.org/ant/binaries/apache-ant-${ANT_VERSION}-bin.tar.
 	https://www.oxygenxml.com/maven/com/oxygenxml/oxygen-patched-xerces/${XERCES_VERSION}/oxygen-patched-xerces-${XERCES_VERSION}.jar \
 	/tmp/
 
-COPY ["index.js", "package.json", "package-lock.json*", "/opt/docker-mei/"]
+COPY ["index.js", "package.json", "package-lock.json*", "cibuildwheel-Linux-python-3.10-x64.zip", "/opt/docker-mei/"]
 
 # Configure the Eclipse Adoptium apt repository
 RUN apt-get update && apt-get full-upgrade -y && \
@@ -60,6 +60,8 @@ RUN apt-get update && apt-get full-upgrade -y && \
 	cd /opt/docker-mei && \
 	# setup node app for rendering MEI files to SVG using Verovio Toolkit
 	npm install --omit=dev	&& \
+    unzip cibuildwheel-Linux-python-3.10-x64.zip && \
+    python3 -m pip install ./verovio-*cp310-manylinux*$(uname -m)*.whl && \
     rm -rfv /tmp/* /root/.npm*
 
 WORKDIR /opt/docker-mei
